@@ -12,21 +12,21 @@
 // b. use created var to randomly pick a character Math.floor (random)
 // c. add up (concat) all selected criteria to generate password.
 // ing ONLY lowerCase letters. Otherwise generate password according to user selected criteria.
-const selectUPPERCASE = "ABCDEFGHIJKLMNUP";
-const selectSYMBOLS = "!£$%^&*()"
-const selectNUMBERS = "0123456789"
-const lowerCaseOnly = "abcdefghijklmnuptsrqwzv"
+let selectUPPERCASE = "ABCDEFGHIJKLMNUP";
+let selectSYMBOLS = "!£$%^&*()"
+let selectNUMBERS = "0123456789"
+let lowerCaseOnly = "abcdefghijklmnuptsrqwzv"
 
 var generateBtn = document.querySelector("#generate");
 generate.addEventListener('submit', e => {
   e.preventDefault()
-  const password= generatePassword(selectUPPERCASE, selectNUMBERS, selectSYMBOLS)
-const selectUPPERCASE = selectUPPERCASE.value
-const selectSYMBOLS = selectSYMBOLS.value
-const selectNUMBERS = selectNUMBERS.value
+  let password= showPassword(selectUPPERCASE, selectNUMBERS, selectSYMBOLS)
+let selectUPPERCASE = selectUPPERCASE.value
+let selectSYMBOLS = selectSYMBOLS.value
+let selectNUMBERS = selectNUMBERS.value
 })
 
-function generatePassword() {
+function generatePassword(uppCase, symbols, numbers) {
   let lengthChoice = window.prompt ("Please choose Password length between 8 and 128 characters");
 
   if ((lengthChoice >= 8 && lengthChoice < 128) == true) {
@@ -36,9 +36,9 @@ function generatePassword() {
   alert ("you Must selected Password Length to continue")
   return ""
   }
-  let selectUPPERCASE = confirm ("Would you like to include UPPER case?")
-  let selectNUMBERS = confirm("Would you like to include Numbers?")
-  let selectSYMBOLS = confirm("Would you like to include Symbols?")
+  selectUPPERCASE = confirm ("Would you like to include UPPER case?")
+  selectNUMBERS = confirm("Would you like to include Numbers?")
+  selectSYMBOLS = confirm("Would you like to include Symbols?")
 }
 
 
