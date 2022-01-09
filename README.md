@@ -29,7 +29,7 @@ AND password is written to the page
 ```
 
 ## Mock-Up & Link
-![https://invogue01.github.io/Browser-Password-Generator/](https://invogue01.github.io/Browser-Password-Generator/)
+[https://invogue01.github.io/Browser-Password-Generator/](https://invogue01.github.io/Browser-Password-Generator/)
 
 The following image shows the web application's appearance :
 
