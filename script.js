@@ -16,7 +16,7 @@ function generatePassword() {
 
   if ((lengthChoice >= 8 && lengthChoice <= 128) == true) {
   } else {
-    lengthChoice = alert("you Must selected Password Length to continue");
+    lengthChoice = alert("you Must selected specified Password Length to continue");
     return "";
   }
   if (lengthChoice) {
@@ -40,12 +40,10 @@ function generatePassword() {
     }
     // IF no Criteria selected show alert
     if (characters == false) {
-       
-        characters = alert("You must choose at least ONE criteria");
-      }
-    
+      characters = alert("You must choose at least ONE criteria");
+    }
   }
-// These two lines of code populate/ show generated password inside password box
+  // These two lines of code populate/ show generated password inside password box
   array = writePassword(lengthChoice, characters);
   document.getElementById("password").innerHTML = array;
 }
