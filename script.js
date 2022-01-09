@@ -29,7 +29,7 @@ function generatePassword() {
   let characters= "";
   lengthChoice = window.prompt ("Please choose Password length between 8 and 128 characters");
 
-  if ((lengthChoice >= 8 && lengthChoice < 128) == true) {
+  if ((lengthChoice >= 8 && lengthChoice <= 128) == true) {
     
   }
   else { lengthChoice =
@@ -50,38 +50,35 @@ if (lengthChoice) {
   if (confirm("Would you like to include NUMBERS case?")==true ) {
     characters += selectNUMBERS 
   }
+  if (lengthChoice) {
+    if (confirm("Would you like to include LowerCase?")==true) {
+      characters+=lowerCaseOnly
+    }
+    
+  }
+
+
 }
 
 writePassword(lengthChoice, characters)
 document.getElementById("password").innerHTML=array;
 }
 
- 
-
-
-
-
-
-
-
-
 // Write password to the password input
-function writePassword(lengthChoice, characters) {
+function writePassword(l, characters) {
  
+  var array= "";
   
-  
-  for (let index = 0; index < lengthChoice.length; index++) {
-    array =+ characters.charAt(Math.floor(Math.random()*characters.length))
-    console.log(array)
-    return array;
+  for (let index = 0; index < l; index++) {
+    
+   array += characters.charAt(Math.floor(Math.random()*characters.length));
+   
+   
   }
- 
 
-
-  
-
-
+  return array;
 }
-// // Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword);
 
+
+// // Add event listener to generate button
+generateBtn.addEventListener("click", generatePassword)
