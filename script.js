@@ -1,4 +1,4 @@
-// Assignment Code
+
 // 1. When button clicked present prompts to select criteria 
 // 2. Needs to prompt character length (min8 max128 characters), upperCase, specialSymbols, numbers
 // 3. 4 prompts in total
@@ -16,7 +16,7 @@ let selectUPPERCASE = "ABCDEFGHIJKLMNUP";
 let selectSYMBOLS = "!£$%^&*()";
 let selectNUMBERS = "0123456789";
 let lowerCaseOnly = "abcdefghijklmnuptsrqwzv";
-let password = "";
+let array= "";
 
 let upper= false
 let lower = true
@@ -65,7 +65,8 @@ characters += (selectNUMBERS ? numbers:"")
 characters += (selectSYMBOLS ? symbols:"")
 characters += (selectUPPERCASE ? upper:"")
 
-array= password(selectLength, characters)
+array= generatePassword(lengthChoice, characters)
+document.getElementById("password").innerHTML=array;
 }
 
 
@@ -73,8 +74,8 @@ array= password(selectLength, characters)
 
 // Write password to the password input
 function writePassword() {
-   var password = generatePassword();
-   var passwordText = document.querySelector("#password");
+  var array = generatePassword();
+   
    var array= "";
   for (let index = 0; index < array.length; index++) {
     array =+ characters.charAt(Math.floor(Math.random()*characters.length))
@@ -83,7 +84,7 @@ function writePassword() {
  
 
 
-   passwordText.value = password;
+  
 
 
 }
