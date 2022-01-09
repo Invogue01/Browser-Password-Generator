@@ -39,11 +39,11 @@ function generatePassword() {
       }
     }
     // IF no Criteria selected show alert
-    if (lengthChoice) {
-      if (alert("You must choose at least ONE criteria") == false) {
+    if (characters == false) {
+       
         characters = alert("You must choose at least ONE criteria");
       }
-    }
+    
   }
 // These two lines of code populate/ show generated password inside password box
   array = writePassword(lengthChoice, characters);
