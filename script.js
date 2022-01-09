@@ -1,16 +1,4 @@
-// 1. When button clicked present prompts to select criteria
-// 2. Needs to prompt character length (min8 max128 characters), upperCase, specialSymbols, numbers
-// 3. 4 prompts in total
-// 4. Validate wh// d. if ONLY password length selected return ALL LOWER CASE password usat user selected (input) if nothing selected make an alert informing that they MUST choose
-// 5. Ask to at least choose character length (how long is password)
-// 6. After password length selected and any other criteria is selected we need to validate (check what user entered/selected)
-// a. validate (check what user entered) and use what user selected to generate password
-
-// 7. right a function that will use numbers, letters, symbols  and so on to do the Math and generate random password.
-// a. i need to create var (or lego pieces) for each criteria as in UpperCase, Numbers, Symbols and so on.
-// b. use created var to randomly pick a character Math.floor (random)
-// c. add up (concat) all selected criteria to generate password.
-// ing ONLY lowerCase letters. Otherwise generate password according to user selected criteria.
+// All our variables in other words Lego pieces that we are working with
 let selectUPPERCASE = "ABCDEFGHIJKLMNUP";
 let selectSYMBOLS = "!£$%^&*()";
 let selectNUMBERS = "0123456789";
@@ -18,7 +6,7 @@ let lowerCaseOnly = "abcdefghijklmnuptsrqwzv";
 let array = "";
 
 var generateBtn = document.querySelector("#generate");
-
+// Series of prompts and questions to get values/ criteria for the password
 function generatePassword() {
   var lengthChoice = "";
   let characters = "";
@@ -50,20 +38,19 @@ function generatePassword() {
         characters += lowerCaseOnly;
       }
     }
+    // IF no Criteria selected show alert
     if (lengthChoice) {
-      if (alert ("You must choose at least ONE criteria") == false) {
-        characters = alert ("You must choose at least ONE criteria")
+      if (alert("You must choose at least ONE criteria") == false) {
+        characters = alert("You must choose at least ONE criteria");
       }
-      
     }
-   
   }
-
+// These two lines of code populate/ show generated password inside password box
   array = writePassword(lengthChoice, characters);
   document.getElementById("password").innerHTML = array;
 }
 
-// Write password to the password input
+// Randomize password and populate inside an array
 function writePassword(l, characters) {
   var array = "";
 
@@ -73,6 +60,5 @@ function writePassword(l, characters) {
 
   return array;
 }
-
-// // Add event listener to generate button
+// Add event listener to red generate button
 generateBtn.addEventListener("click", generatePassword);
