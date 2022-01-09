@@ -13,10 +13,15 @@
 // c. add up (concat) all selected criteria to generate password.
 // ing ONLY lowerCase letters. Otherwise generate password according to user selected criteria.
 let selectUPPERCASE = "ABCDEFGHIJKLMNUP";
-let selectSYMBOLS = "!£$%^&*()"
-let selectNUMBERS = "0123456789"
-let lowerCaseOnly = "abcdefghijklmnuptsrqwzv"
+let selectSYMBOLS = "!£$%^&*()";
+let selectNUMBERS = "0123456789";
+let lowerCaseOnly = "abcdefghijklmnuptsrqwzv";
+let password = "";
 
+let upper= false
+let lower = true
+let symbols = false
+let numbers = false 
 
 var generateBtn = document.querySelector("#generate");
 generate.addEventListener('submit', e => {
@@ -24,7 +29,8 @@ generate.addEventListener('submit', e => {
 
 })
 
-function generatePassword(selectUPPERCASE, selectSYMBOLS, selectNUMBERS) {
+function generatePassword() {
+  var lengthChoice = "";
   let lengthChoice = window.prompt ("Please choose Password length between 8 and 128 characters");
 
   if ((lengthChoice >= 8 && lengthChoice < 128) == true) {
@@ -34,20 +40,30 @@ function generatePassword(selectUPPERCASE, selectSYMBOLS, selectNUMBERS) {
   alert ("you Must selected Password Length to continue")
   return ""
   }
-  selectUPPERCASE = confirm ("Would you like to include UPPER case?")
-  selectNUMBERS = confirm("Would you like to include Numbers?")
-  selectSYMBOLS = confirm("Would you like to include Symbols?")
-
-  let passwordLength= lowerCaseOnly
-  if (selectUPPERCASE) passwordLength = passwordLength.concat(selectUPPERCASE)
-  if (selectNUMBERS) passwordLength = passwordLength.concat(selectSYMBOLS)
-  if (selectSYMBOLS) passwordLength = passwordLength.concat(selectNUMBERS)
-let characterAmount = []
-for (let i =0; i< characterAmount, i++;) {
-  let characterAmount = passwordLength[Math.Floor(Math.random()* characterAmount)]
-  passwordCharacter.push(characterAmount)
+ if (lengthChoice) {
+   if (confirm("Would you like to include UPPER case?")==true ) {
+     upper= true
+   }
+ }
+ if (lengthChoice) {
+  if (confirm("Would you like to include SYMBOLS case?")==true ) {
+    symbols= true
+  }
 }
- return lengthChoice;
+if (lengthChoice) {
+  if (confirm("Would you like to include NUMBERS case?")==true ) {
+    numbers= true
+  }
+}
+if (lengthChoice) {
+  if (upper === false && symbols === false && numbers === false ) {
+    lower= true
+  }
+}
+let characters= "";
+characters += (selectNUMBERS ? numbers:"")
+characters += (selectSYMBOLS ? symbols:"")
+characters += (selectUPPER ? upper:"")
 }
 
 
@@ -57,7 +73,11 @@ for (let i =0; i< characterAmount, i++;) {
 function writePassword() {
    var password = generatePassword();
    var passwordText = document.querySelector("#password");
-  
+   var array= "";
+  for (let index = 0; index < array.length; index++) {
+    array =+ characters.charAt(Math.floor(Math.random()*characters.length))
+    return array;
+  }
  
 
 
