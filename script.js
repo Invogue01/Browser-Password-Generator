@@ -1,5 +1,4 @@
-
-// 1. When button clicked present prompts to select criteria 
+// 1. When button clicked present prompts to select criteria
 // 2. Needs to prompt character length (min8 max128 characters), upperCase, specialSymbols, numbers
 // 3. 4 prompts in total
 // 4. Validate wh// d. if ONLY password length selected return ALL LOWER CASE password usat user selected (input) if nothing selected make an alert informing that they MUST choose
@@ -16,69 +15,64 @@ let selectUPPERCASE = "ABCDEFGHIJKLMNUP";
 let selectSYMBOLS = "!£$%^&*()";
 let selectNUMBERS = "0123456789";
 let lowerCaseOnly = "abcdefghijklmnuptsrqwzv";
-let array= "";
-
-
-
+let array = "";
 
 var generateBtn = document.querySelector("#generate");
 
-
 function generatePassword() {
   var lengthChoice = "";
-  let characters= "";
-  lengthChoice = window.prompt ("Please choose Password length between 8 and 128 characters");
+  let characters = "";
+  lengthChoice = window.prompt(
+    "Please choose Password length between 8 and 128 characters"
+  );
 
   if ((lengthChoice >= 8 && lengthChoice <= 128) == true) {
-    
-  }
-  else { lengthChoice =
-  alert ("you Must selected Password Length to continue")
-  return ""
-  }
- if (lengthChoice) {
-   if (confirm("Would you like to include UPPER case?")==true ) {
-     characters+=selectUPPERCASE
-   }
- }
- if (lengthChoice) {
-  if (confirm("Would you like to include SYMBOLS case?")==true ) {
-    characters += selectSYMBOLS 
-  }
-}
-if (lengthChoice) {
-  if (confirm("Would you like to include NUMBERS case?")==true ) {
-    characters += selectNUMBERS 
+  } else {
+    lengthChoice = alert("you Must selected Password Length to continue");
+    return "";
   }
   if (lengthChoice) {
-    if (confirm("Would you like to include LowerCase?")==true) {
-      characters+=lowerCaseOnly
+    if (confirm("Would you like to include UPPER case?") == true) {
+      characters += selectUPPERCASE;
     }
-    
+  }
+  if (lengthChoice) {
+    if (confirm("Would you like to include SYMBOLS case?") == true) {
+      characters += selectSYMBOLS;
+    }
+  }
+  if (lengthChoice) {
+    if (confirm("Would you like to include NUMBERS case?") == true) {
+      characters += selectNUMBERS;
+    }
+    if (lengthChoice) {
+      if (confirm("Would you like to include LowerCase?") == true) {
+        characters += lowerCaseOnly;
+      }
+    }
+    if (lengthChoice) {
+      if (alert ("You must choose at least ONE criteria") == false) {
+        characters = alert ("You must choose at least ONE criteria")
+      }
+      
+    }
+   
   }
 
-
-}
-
-array=writePassword(lengthChoice, characters)
-document.getElementById("password").innerHTML=array;
+  array = writePassword(lengthChoice, characters);
+  document.getElementById("password").innerHTML = array;
 }
 
 // Write password to the password input
 function writePassword(l, characters) {
- 
-  var array= "";
-  
+  var array = "";
+
   for (let index = 0; index < l; index++) {
-    
-   array += characters.charAt(Math.floor(Math.random()*characters.length));
-   
-    
+    array += characters.charAt(Math.floor(Math.random() * characters.length));
   }
 
   return array;
 }
 
-
 // // Add event listener to generate button
-generateBtn.addEventListener("click", generatePassword)
+generateBtn.addEventListener("click", generatePassword);
