@@ -28,8 +28,9 @@ THEN a password is generated that matches the selected criteria
 AND password is written to the page
 ```
 
-## Mock-Up
+## Mock-Up & Link
 
 The following image shows the web application's appearance :
+![https://invogue01.github.io/Browser-Password-Generator/](https://invogue01.github.io/Browser-Password-Generator/)
 
 ![The Password Generator application displays a red button to "Generate Password".](password-generator.png)
