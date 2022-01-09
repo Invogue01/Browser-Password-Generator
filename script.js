@@ -31,7 +31,7 @@ generate.addEventListener('submit', e => {
 
 function generatePassword() {
   var lengthChoice = "";
-  let lengthChoice = window.prompt ("Please choose Password length between 8 and 128 characters");
+  lengthChoice = window.prompt ("Please choose Password length between 8 and 128 characters");
 
   if ((lengthChoice >= 8 && lengthChoice < 128) == true) {
     
@@ -63,7 +63,9 @@ if (lengthChoice) {
 let characters= "";
 characters += (selectNUMBERS ? numbers:"")
 characters += (selectSYMBOLS ? symbols:"")
-characters += (selectUPPER ? upper:"")
+characters += (selectUPPERCASE ? upper:"")
+
+array= password(selectLength, characters)
 }
 
 
