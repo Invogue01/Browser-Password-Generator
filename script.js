@@ -60,7 +60,7 @@ if (lengthChoice) {
 
 }
 
-writePassword(lengthChoice, characters)
+array=writePassword(lengthChoice, characters)
 document.getElementById("password").innerHTML=array;
 }
 
@@ -73,7 +73,7 @@ function writePassword(l, characters) {
     
    array += characters.charAt(Math.floor(Math.random()*characters.length));
    
-   
+    
   }
 
   return array;
