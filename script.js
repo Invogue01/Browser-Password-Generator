@@ -18,19 +18,15 @@ let selectNUMBERS = "0123456789";
 let lowerCaseOnly = "abcdefghijklmnuptsrqwzv";
 let array= "";
 
-let upper= false
-let lower = true
-let symbols = false
-let numbers = false 
+
+
 
 var generateBtn = document.querySelector("#generate");
-generate.addEventListener('submit', e => {
-  e.preventDefault()
 
-})
 
 function generatePassword() {
   var lengthChoice = "";
+  let characters= "";
   lengthChoice = window.prompt ("Please choose Password length between 8 and 128 characters");
 
   if ((lengthChoice >= 8 && lengthChoice < 128) == true) {
@@ -42,43 +38,41 @@ function generatePassword() {
   }
  if (lengthChoice) {
    if (confirm("Would you like to include UPPER case?")==true ) {
-     upper= true
+     characters+=selectUPPERCASE
    }
  }
  if (lengthChoice) {
   if (confirm("Would you like to include SYMBOLS case?")==true ) {
-    symbols= true
+    characters += selectSYMBOLS 
   }
 }
 if (lengthChoice) {
   if (confirm("Would you like to include NUMBERS case?")==true ) {
-    numbers= true
+    characters += selectNUMBERS 
   }
 }
-if (lengthChoice) {
-  if (upper === false && symbols === false && numbers === false ) {
-    lower= true
-  }
-}
-let characters= "";
-characters += (selectNUMBERS ? numbers:"")
-characters += (selectSYMBOLS ? symbols:"")
-characters += (selectUPPERCASE ? upper:"")
 
-array= generatePassword(lengthChoice, characters)
+writePassword(lengthChoice, characters)
 document.getElementById("password").innerHTML=array;
 }
+
+ 
+
+
+
+
 
 
 
 
 // Write password to the password input
-function writePassword() {
-  var array = generatePassword();
-   
-   var array= "";
-  for (let index = 0; index < array.length; index++) {
+function writePassword(lengthChoice, characters) {
+ 
+  
+  
+  for (let index = 0; index < lengthChoice.length; index++) {
     array =+ characters.charAt(Math.floor(Math.random()*characters.length))
+    console.log(array)
     return array;
   }
  
@@ -89,5 +83,5 @@ function writePassword() {
 
 }
 // // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
 
