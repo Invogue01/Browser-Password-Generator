@@ -31,6 +31,6 @@ AND password is written to the page
 ## Mock-Up & Link
 
 The following image shows the web application's appearance :
-![https://invogue01.github.io/Browser-Password-Generator/](https://invogue01.github.io/Browser-Password-Generator/)
+![Link to Application](https://invogue01.github.io/Browser-Password-Generator/)
 
 ![The Password Generator application displays a red button to "Generate Password".](password-generator.png)
