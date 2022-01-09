@@ -17,20 +17,18 @@ let selectSYMBOLS = "!£$%^&*()"
 let selectNUMBERS = "0123456789"
 let lowerCaseOnly = "abcdefghijklmnuptsrqwzv"
 
+
 var generateBtn = document.querySelector("#generate");
 generate.addEventListener('submit', e => {
   e.preventDefault()
-  let password= showPassword(selectUPPERCASE, selectNUMBERS, selectSYMBOLS)
-let selectUPPERCASE = selectUPPERCASE.value
-let selectSYMBOLS = selectSYMBOLS.value
-let selectNUMBERS = selectNUMBERS.value
+
 })
 
-function generatePassword(uppCase, symbols, numbers) {
+function generatePassword(selectUPPERCASE, selectSYMBOLS, selectNUMBERS) {
   let lengthChoice = window.prompt ("Please choose Password length between 8 and 128 characters");
 
   if ((lengthChoice >= 8 && lengthChoice < 128) == true) {
-    alert ("Thank you");
+    
   }
   else { lengthChoice =
   alert ("you Must selected Password Length to continue")
@@ -39,6 +37,17 @@ function generatePassword(uppCase, symbols, numbers) {
   selectUPPERCASE = confirm ("Would you like to include UPPER case?")
   selectNUMBERS = confirm("Would you like to include Numbers?")
   selectSYMBOLS = confirm("Would you like to include Symbols?")
+
+  let passwordLength= lowerCaseOnly
+  if (selectUPPERCASE) passwordLength = passwordLength.concat(selectUPPERCASE)
+  if (selectNUMBERS) passwordLength = passwordLength.concat(selectSYMBOLS)
+  if (selectSYMBOLS) passwordLength = passwordLength.concat(selectNUMBERS)
+let characterAmount = []
+for (let i =0; i< characterAmount, i++;) {
+  let characterAmount = passwordLength[Math.Floor(Math.random()* characterAmount)]
+  passwordCharacter.push(characterAmount)
+}
+ return lengthChoice;
 }
 
 
@@ -48,7 +57,8 @@ function generatePassword(uppCase, symbols, numbers) {
 function writePassword() {
    var password = generatePassword();
    var passwordText = document.querySelector("#password");
-
+  
+ 
 
 
    passwordText.value = password;
